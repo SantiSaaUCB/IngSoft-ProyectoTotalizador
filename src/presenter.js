@@ -1,0 +1,1 @@
+import totalizar from "./totalizador";
