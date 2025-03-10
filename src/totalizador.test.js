@@ -99,4 +99,11 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBe(1.0825);
     expect(resultado.totalConDescuentoAdicional).toBe(1.06085);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Bebidas alcoholicas'", () => {
+    const resultado = totalizar(1, 1, "CA", "Bebidas alcoholicas");
+    expect(resultado.impuestoAdicional).toBe(0.07);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.16);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.16);
+  });
 });
