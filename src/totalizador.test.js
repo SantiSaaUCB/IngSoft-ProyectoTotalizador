@@ -85,4 +85,10 @@ describe("Totalizar", () => {
     expect(resultado.descuento).toBe(0.15);
     expect(resultado.totalConDescuento).toBeCloseTo(30000 * 1.0825 * 0.85, 2);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Varios'", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios");
+    expect(resultado.impuestoAdicional).toBe(0);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConDescuento).toBe(1.0825);
+  });
 });

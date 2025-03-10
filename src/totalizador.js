@@ -36,6 +36,9 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria)
           default: impuestoAdicional = 0; descuentoAdicional = 0;
      }
 
+     const totalConImpuestoAdicional = totalConDescuento + (totalConDescuento * impuestoAdicional);
+     const totalConDescuentoAdicional = totalConImpuestoAdicional - (totalConImpuestoAdicional * descuentoAdicional);
+
      return {
           precioNeto,
           impuesto,
@@ -43,7 +46,9 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria)
           descuento,
           totalConDescuento,
           impuestoAdicional,
-          descuentoAdicional
+          descuentoAdicional,
+          totalConImpuestoAdicional,
+          totalConDescuentoAdicional
      };
 }
 
