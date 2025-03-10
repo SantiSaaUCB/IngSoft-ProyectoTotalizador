@@ -7,15 +7,32 @@
   </head>
   <body>
     <h1>Totalizador</h1>
-      <form id="totalizar-form">
-        <label for="cantidad-items">Cantidad de Items:</label>
-        <input type="number" id="cantidad-items" required/> <br>
-        <label for="precio-item">Precio por Item:</label>
-        <input type="number" id="precio-item" required/> <br>
-        <input type="submit" value="Totalizar" id="totalizar-button" />
-      </form>
-      <div id="resultado-div"></div>
+    <form id="totalizar-form">
+      <label for="cantidad-items">Cantidad de Items:</label>
+      <input type="number" id="cantidad-items" required /> <br> <br>
+      <label for="precio-item">Precio por Item:</label>
+      <input type="number" id="precio-item" required /> <br> <br>
+      <label for="estado">Estado:</label>
+      <select id="estado">
+        <option value="CA" data-name="California">California</option>
+        <option value="NV" data-name="Nevada">Nevada</option>
+        <option value="UT" data-name="Utah">Utah</option>
+        <option value="TX" data-name="Texas">Texas</option>
+        <option value="AL" data-name="Alabama">Alabama</option>
+      </select>
+      <input type="submit" value="Totalizar" id="totalizar-button" />
+    </form> <br> <br>
 
-      <script type="module" src="./src/presenter.js"></script>
+    <div id="resultado-div">
+      <p id="info-cantidadItems"></p>
+      <p id="info-precioItem"></p>
+      <p id="info-precioNeto"></p>
+      <p id="info-estado"></p>
+      <p id="info-porcentajeImpuestos"></p>
+      <p id="info-totalConImpuesto"></p>
+      <p id="info-porcentajeDescuentos"></p>
+      <p id="info-totalConDescuento"></p>
+    </div>
+    <script type="module" src="./src/presenter.js"></script>
   </body>
 </html>
