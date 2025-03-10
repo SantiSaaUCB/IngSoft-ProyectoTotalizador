@@ -14,6 +14,7 @@ const textTotalConImpuesto = document.querySelector("#info-totalConImpuesto");
 const textPorcentajeDescuento = document.querySelector("#info-porcentajeDescuentos");
 const textTotalConDescuento = document.querySelector("#info-totalConDescuento");
 const textPorcentajeImpuestoVarios = document.querySelector("#info-porcentajeImpuestosVarios");
+const textPorcentajeDescuentoVarios = document.querySelector("#info-porcentajeDescuentoVarios");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -35,4 +36,5 @@ form.addEventListener("submit", (event) => {
   textPorcentajeDescuento.textContent = `Descuento aplicado: ${(resultado.descuento * 100).toFixed(2)}%`;
   textTotalConDescuento.textContent = `Total con Descuento: ${resultado.totalConDescuento.toFixed(2)}`;
   textPorcentajeImpuestoVarios.textContent = `Porcentaje de Impuesto Adicional para ${categoriaSeleccionada}: ${(resultado.impuestoAdicional * 100).toFixed(2)}%`;
+  textPorcentajeDescuentoVarios.textContent = `Porcentaje de Descuento Adicional para ${categoriaSeleccionada}: ${(resultado.descuentoAdicional * 100).toFixed(2)}%`;
 });
