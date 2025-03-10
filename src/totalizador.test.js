@@ -85,4 +85,5 @@ describe("Totalizar", () => {
     expect(resultado.descuento).toBe(0.15);
     expect(resultado.totalConDescuento).toBeCloseTo(30000 * 1.0825 * 0.85, 2);
   });
+  
 });
