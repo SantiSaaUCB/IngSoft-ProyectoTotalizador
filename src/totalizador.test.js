@@ -89,6 +89,14 @@ describe("Totalizar", () => {
     const resultado = totalizar(1, 1, "CA", "Varios");
     expect(resultado.impuestoAdicional).toBe(0);
     expect(resultado.descuentoAdicional).toBe(0);
-    expect(resultado.totalConDescuento).toBe(1.0825);
+    expect(resultado.totalConImpuestoAdicional).toBe(1.0825);
+    expect(resultado.totalConDescuentoAdicional).toBe(1.0825);
+  });
+  it("Debe calcular correctamente el total con descuento adicional para 'Alimentos'", () => {
+    const resultado = totalizar(1, 1, "CA", "Alimentos");
+    expect(resultado.impuestoAdicional).toBe(0);
+    expect(resultado.descuentoAdicional).toBe(0.02);
+    expect(resultado.totalConImpuestoAdicional).toBe(1.0825);
+    expect(resultado.totalConDescuentoAdicional).toBe(1.06085);
   });
 });
