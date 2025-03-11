@@ -230,20 +230,25 @@ describe("Totalizar", () => {
     expect(resultado.costoAdicionalPorEnvio).toBe(9.0);
     expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (9.0 * 10), 2);
   });
-  it("Debe mostrar el descuento segun el tipo de cliente", () => {
+  it("Debe mostrar el descuento segun el tipo de cliente 'Normal'", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Normal");
     expect(resultado.descuentoPorTipoCliente).toBe(0);
   });
-  it("Debe mostrar el descuento segun el tipo de cliente", () => {
+  it("Debe mostrar el descuento segun el tipo de cliente 'Recurrente'", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Recurrente");
     expect(resultado.descuentoPorTipoCliente).toBe(0.005);
   });
-  it("Debe mostrar el descuento segun el tipo de cliente", () => {
+  it("Debe mostrar el descuento segun el tipo de cliente 'Antiguo Recurrente'", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Antiguo Recurrente");
     expect(resultado.descuentoPorTipoCliente).toBe(0.01);
   });
-  it("Debe mostrar el descuento segun el tipo de cliente", () => {
+  it("Debe mostrar el descuento segun el tipo de cliente 'Especial'", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Especial");
     expect(resultado.descuentoPorTipoCliente).toBe(0.015);
+  });
+  it("Debe calcular el total con el descuento segun el tipo de cliente 'Normal'", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Normal");
+    expect(resultado.descuentoPorTipoCliente).toBe(0);
+    expect(resultado.totalConDescuentoPorTipoCliente).toBeCloseTo(108.25);
   });
 });
