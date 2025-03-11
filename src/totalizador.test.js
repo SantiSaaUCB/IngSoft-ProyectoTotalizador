@@ -120,4 +120,11 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.11);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.11);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Electronicos'", () => {
+    const resultado = totalizar(1, 1, "CA", "Electronicos");
+    expect(resultado.impuestoAdicional).toBe(0.04);
+    expect(resultado.descuentoAdicional).toBe(0.01);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.13);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.11);
+  });
 });
