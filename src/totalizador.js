@@ -70,6 +70,12 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
                     descuentoFijo = 200; 
                }
                break;
+          case "Recurrente": 
+               if(precioNeto > 3000 && varios_categoria == "Alimentos")
+               {
+                    descuentoFijo = 100; 
+               }
+               break;
           default:descuentoFijo = 0; break;
      }
 

@@ -266,4 +266,8 @@ describe("Totalizar", () => {
     const resultado = totalizar(1, 7001, "CA", "Electronicos", "0-10", "Especial");
     expect(resultado.PrecioTotalFinal).toBeCloseTo(6947.85);
   });
+  it("Debe calcular el total final con descuento fijo para 'Recurrente'", () => {
+    const resultado = totalizar(1, 3001, "CA", "Alimentos", "0-10", "Recurrente");
+    expect(resultado.PrecioTotalFinal).toBeCloseTo(2909.31);
+  });
 });
