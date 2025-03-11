@@ -180,13 +180,24 @@ describe("Totalizar", () => {
     expect(resultado.costoAdicionalPorEnvio).toBe(0);
     expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo((108.25 * 1.02), 2);
   });
-  it("Debe calcular correctamente el total con costo adicional por envio para el rango de peso volumetrico 0-10", () => {
-    const resultado = totalizar(10, 10, "CA", "Varios", "0-10");
+
+  it("Debe calcular correctamente el total con costo adicional por envio para el rango de peso volumetrico 11-20", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", "11-20");
     expect(resultado.impuestoAdicional).toBe(0);
     expect(resultado.descuentoAdicional).toBe(0);
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(108.25, 2);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(108.25, 2);
-    expect(resultado.costoAdicionalPorEnvio).toBe(0);
-    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25, 2);
+    expect(resultado.costoAdicionalPorEnvio).toBe(3.5);
+    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (3.5 * 10), 2);
+  });
+
+  it("Debe calcular correctamente el total con costo adicional por envio para el rango de peso volumetrico 41-80", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", "41-80");
+    expect(resultado.impuestoAdicional).toBe(0);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(108.25, 2);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(108.25, 2);
+    expect(resultado.costoAdicionalPorEnvio).toBe(6.0);
+    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (6.0 * 10), 2);
   });
 });
