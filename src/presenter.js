@@ -4,7 +4,7 @@ const form = document.querySelector("#totalizar-form");
 const items = document.querySelector("#cantidad-items");
 const price = document.querySelector("#precio-item");
 const state = document.querySelector("#estado");
-const category = document.querySelector("#varios")
+const category = document.querySelector("#categorias");
 const textCantidad = document.querySelector("#info-cantidadItems");
 const textPrecio = document.querySelector("#info-precioItem");
 const textPrecioNeto = document.querySelector("#info-precioNeto");
@@ -24,7 +24,7 @@ form.addEventListener("submit", (event) => {
   let cantidadItems = parseInt(items.value, 10);
   let precioItem = parseFloat(price.value);
   let estadoSeleccionado = state.value;
-  let categoriaSeleccionada = category.value;
+  let categoriaSeleccionada = category.value.trim() || "Varios"; // Asegurar un valor predeterminado
   const estadoNombre = state.options[state.selectedIndex].getAttribute("data-name");
 
   const resultado = totalizar(cantidadItems, precioItem, estadoSeleccionado, categoriaSeleccionada);
