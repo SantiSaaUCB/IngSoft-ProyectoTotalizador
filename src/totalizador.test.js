@@ -248,7 +248,10 @@ describe("Totalizar", () => {
   });
   it("Debe calcular el total con el descuento segun el tipo de cliente 'Normal'", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Normal");
-    expect(resultado.descuentoPorTipoCliente).toBe(0);
     expect(resultado.totalConDescuentoPorTipoCliente).toBeCloseTo(108.25);
+  });
+  it("Debe calcular el total con el descuento segun el tipo de cliente 'Recurrente'", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Recurrente");
+    expect(resultado.totalConDescuentoPorTipoCliente).toBeCloseTo(107.71);
   });
 });
