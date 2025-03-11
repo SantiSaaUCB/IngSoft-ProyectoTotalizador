@@ -1,6 +1,6 @@
 function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria, peso_volumetrico_seleccionado) {
      const precioNeto = cantidad_items * precio_item;
-     let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0;
+     let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0, costoAdicionalPorEnvio = 0;
    
      varios_categoria = varios_categoria || "Varios";
    
@@ -42,14 +42,14 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
      const totalConDescuentoAdicional = totalConImpuestoAdicional * (1 - descuentoAdicional);
 
      switch (peso_volumetrico_seleccionado) {
-          case "0-10": break;
-          case "11-20": break;
-          case "21-40": break;
-          case "41-80": break;
-          case "81-100": break;
-          case "101-200": break;
-          case ">200": break;
-          default: break;
+          case "0-10": costoAdicionalPorEnvio = 0.0; break;
+          case "11-20": costoAdicionalPorEnvio = 3.5; break;
+          case "21-40": costoAdicionalPorEnvio = 5.0; break;
+          case "41-80": costoAdicionalPorEnvio = 6.0; break;
+          case "81-100": costoAdicionalPorEnvio = 6.5; break;
+          case "101-200": costoAdicionalPorEnvio = 8.0; break;
+          case ">200": costoAdicionalPorEnvio = 9.0; break;
+          default: costoAdicionalPorEnvio = 0.00; break;
         }
    
      return {
@@ -61,7 +61,8 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
        impuestoAdicional,
        descuentoAdicional,
        totalConImpuestoAdicional,
-       totalConDescuentoAdicional
+       totalConDescuentoAdicional,
+       costoAdicionalPorEnvio
      };
    }
    

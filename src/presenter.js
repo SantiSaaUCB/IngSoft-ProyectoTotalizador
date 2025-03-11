@@ -44,5 +44,5 @@ form.addEventListener("submit", (event) => {
   textPorcentajeDescuentoVarios.textContent = `Porcentaje de Descuento Adicional para ${categoriaSeleccionada}: ${(resultado.descuentoAdicional * 100).toFixed(2)}%`;
   textTotalConImpuestoAdicional.textContent = `Total con Impuesto Adicional: ${resultado.totalConImpuestoAdicional.toFixed(2)}`;
   textTotalConDescuentoAdicional.textContent = `Total con Descuento Adicional: ${resultado.totalConDescuentoAdicional.toFixed(2)}`;
-  textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (pesos entre ${peso_volumetrico_seleccionado}):`;
+  textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (peso entre ${peso_volumetrico_seleccionado}): ${resultado.costoAdicionalPorEnvio.toFixed(2)}$ por item`;
 });
