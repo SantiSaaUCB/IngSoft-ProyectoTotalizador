@@ -55,11 +55,13 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
 
      switch (tipoClienteSeleccionado) {
           case "Normal": descuentoPorTipoCliente = 0.0; break;
-          case "Recurrente": descuentoPorTipoCliente = 0.5; break;
-          case "Antiguo Recurrente": descuentoPorTipoCliente = 1.0; break;
-          case "Especial": descuentoPorTipoCliente = 1.5; break;
+          case "Recurrente": descuentoPorTipoCliente = 0.005; break;
+          case "Antiguo Recurrente": descuentoPorTipoCliente = 0.01; break;
+          case "Especial": descuentoPorTipoCliente = 0.015; break;
           default:descuentoPorTipoCliente = 0.0; break;
      }
+
+     const totalConDescuentoPorTipoCliente = totalCostoAdicionalPorEnvio - (totalCostoAdicionalPorEnvio * descuentoPorTipoCliente);
 
      return {
        precioNeto,
@@ -73,7 +75,8 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
        totalConDescuentoAdicional,
        costoAdicionalPorEnvio,
        totalCostoAdicionalPorEnvio,
-       descuentoPorTipoCliente
+       descuentoPorTipoCliente,
+       totalConDescuentoPorTipoCliente
      };
    }
    
