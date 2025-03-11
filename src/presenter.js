@@ -6,6 +6,7 @@ const price = document.querySelector("#precio-item");
 const state = document.querySelector("#estado");
 const category = document.querySelector("#categorias");
 const volumetricWeight = document.querySelector("#peso_volumetrico");
+const clientType = document.querySelector("#tipo_cliente");
 const textCantidad = document.querySelector("#info-cantidadItems");
 const textPrecio = document.querySelector("#info-precioItem");
 const textPrecioNeto = document.querySelector("#info-precioNeto");
@@ -20,6 +21,7 @@ const textTotalConImpuestoAdicional = document.querySelector("#info-totalConImpu
 const textTotalConDescuentoAdicional = document.querySelector("#info-totalConDescuentoAdicional");
 const textCostoAdicionalPorEnvio = document.querySelector("#info-costoAdicionalPorEnvio");
 const textTotalConCostoAdicionalPorEnvio = document.querySelector("#info-totalConCostoAdicionalPorEnvio");
+const textDescuentoPorTipoCliente = document.querySelector("#info-descuentoPorTipoCliente");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -29,9 +31,10 @@ form.addEventListener("submit", (event) => {
   let estadoSeleccionado = state.value;
   let categoriaSeleccionada = category.value.trim() || "Varios";
   let peso_volumetrico_seleccionado = volumetricWeight.value;
+  let tipoClienteSeleccionado = clientType.value;
   const estadoNombre = state.options[state.selectedIndex].getAttribute("data-name");
 
-  const resultado = totalizar(cantidadItems, precioItem, estadoSeleccionado, categoriaSeleccionada, peso_volumetrico_seleccionado);
+  const resultado = totalizar(cantidadItems, precioItem, estadoSeleccionado, categoriaSeleccionada, peso_volumetrico_seleccionado, tipoClienteSeleccionado);
 
   textCantidad.textContent = `Cantidad de Items a Comprar: ${cantidadItems}`;
   textPrecio.textContent = `Precio por Item: ${precioItem}`;
@@ -47,4 +50,5 @@ form.addEventListener("submit", (event) => {
   textTotalConDescuentoAdicional.textContent = `Total con Descuento Adicional: ${resultado.totalConDescuentoAdicional.toFixed(2)}`;
   textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (peso entre ${peso_volumetrico_seleccionado}): ${resultado.costoAdicionalPorEnvio.toFixed(2)}$ por item`;
   textTotalConCostoAdicionalPorEnvio.textContent = `Total con Costo Adicional por Envio: ${(resultado.totalConDescuentoAdicional + resultado.costoAdicionalPorEnvio).toFixed(2)}`;
+  textDescuentoPorTipoCliente.textContent = `Descuento por ser un cliente ${tipoClienteSeleccionado}: `;
 });

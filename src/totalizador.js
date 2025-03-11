@@ -1,4 +1,4 @@
-function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria, peso_volumetrico_seleccionado) {
+function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria, peso_volumetrico_seleccionado, tipoClienteSeleccionado) {
      const precioNeto = cantidad_items * precio_item;
      let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0, costoAdicionalPorEnvio = 0;
    
@@ -52,7 +52,15 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
           default: costoAdicionalPorEnvio = 0.00; break;
      }
      const totalCostoAdicionalPorEnvio = totalConDescuentoAdicional + (costoAdicionalPorEnvio * cantidad_items);
-   
+
+     switch (tipoClienteSeleccionado) {
+          case "Normal":break;
+          case "Recurrente": break;
+          case "Antiguo Recurrente": break;
+          case "Especial": break;
+          default: break;
+     }
+
      return {
        precioNeto,
        impuesto,

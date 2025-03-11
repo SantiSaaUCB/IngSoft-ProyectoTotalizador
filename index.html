@@ -40,6 +40,13 @@
         <option value="101-200" data-name="101-200">101-200</option>
         <option value=">200" data-name=">200">>200</option>
       </select>
+      <label for="tipoCliente">Tipo Cliente:</label>
+      <select id="tipo_cliente">
+        <option value="Normal" data-name="Normal">Normal</option>
+        <option value="Recurrente" data-name="Recurrente">Recurrente</option>
+        <option value="Antiguo Recurrente" data-name="Antiguo Recurrente">Antiguo Recurrente</option>
+        <option value="Especial" data-name="Especial">Especial</option>
+      </select>
       
       <input type="submit" value="Totalizar" id="totalizar-button" />
     </form> <br> <br>
@@ -59,6 +66,8 @@
       <p id="info-totalConDescuentoAdicional"></p>
       <p id="info-costoAdicionalPorEnvio"></p>
       <p id="info-totalConCostoAdicionalPorEnvio"></p>
+      <p id="info-descuentoPorTipoCliente"></p>
+      <!-- <p id="info-totalConTipoCliente"></p> -->
     </div>
     <script type="module" src="./src/presenter.js"></script>
   </body>
