@@ -127,4 +127,11 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.13);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.11);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Vestimenta'", () => {
+    const resultado = totalizar(1, 1, "CA", "Vestimenta");
+    expect(resultado.impuestoAdicional).toBe(0.02);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.10);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.10);
+  });
 });
