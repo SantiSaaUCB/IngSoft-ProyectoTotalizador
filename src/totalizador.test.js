@@ -113,4 +113,11 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.08);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.07);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Muebles'", () => {
+    const resultado = totalizar(1, 1, "CA", "Muebles");
+    expect(resultado.impuestoAdicional).toBe(0.03);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.11);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.11);
+  });
 });
