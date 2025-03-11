@@ -134,4 +134,42 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.10);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.10);
   });
+  it("Debe calcular correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "0-10");
+    expect(resultado.costoAdicionalPorEnvio).toBe(0);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "11-20");
+    expect(resultado.costoAdicionalPorEnvio).toBe(3.5);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "21-40");
+    expect(resultado.costoAdicionalPorEnvio).toBe(5);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "41-80");
+    expect(resultado.costoAdicionalPorEnvio).toBe(6);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "81-100");
+    expect(resultado.costoAdicionalPorEnvio).toBe(6.5);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", "101-200");
+    expect(resultado.costoAdicionalPorEnvio).toBe(8);
+  });
+  it("Debe mostrar correctamente el costo adicional por envio para el rango de peso volumetrico 0-10", () => {
+    const resultado = totalizar(1, 1, "CA", "Varios", ">200");
+    expect(resultado.costoAdicionalPorEnvio).toBe(9);
+  });
+  
+  it("Debe calcular correctamente el total con impuesto adicional y descuento adicional para la categoría seleccionada", () => {
+    const resultado = totalizar(10, 10, "CA", "Electronicos", "21-40");
+    expect(resultado.impuestoAdicional).toBe(0.04);
+    expect(resultado.descuentoAdicional).toBe(0.01);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(108.25 * 1.04, 2);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo((108.25 * 1.04) * 0.99, 2);
+    expect(resultado.costoAdicionalPorEnvio).toBe(5.0);
+    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(((108.25 * 1.04) * 0.99) + (5.0 * 10), 2);
+  });
 });

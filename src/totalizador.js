@@ -50,7 +50,8 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
           case "101-200": costoAdicionalPorEnvio = 8.0; break;
           case ">200": costoAdicionalPorEnvio = 9.0; break;
           default: costoAdicionalPorEnvio = 0.00; break;
-        }
+     }
+     const totalCostoAdicionalPorEnvio = totalConDescuentoAdicional + (costoAdicionalPorEnvio * cantidad_items);
    
      return {
        precioNeto,
@@ -62,7 +63,8 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
        descuentoAdicional,
        totalConImpuestoAdicional,
        totalConDescuentoAdicional,
-       costoAdicionalPorEnvio
+       costoAdicionalPorEnvio,
+       totalCostoAdicionalPorEnvio
      };
    }
    
