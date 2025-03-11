@@ -1,4 +1,4 @@
-function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria) {
+function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria, peso_volumetrico_seleccionado) {
      const precioNeto = cantidad_items * precio_item;
      let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0;
    
@@ -40,6 +40,17 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria)
    
      const totalConImpuestoAdicional = totalConDescuento * (1 + impuestoAdicional);
      const totalConDescuentoAdicional = totalConImpuestoAdicional * (1 - descuentoAdicional);
+
+     switch (peso_volumetrico_seleccionado) {
+          case "0-10": break;
+          case "11-20": break;
+          case "21-40": break;
+          case "41-80": break;
+          case "81-100": break;
+          case "101-200": break;
+          case ">200": break;
+          default: break;
+        }
    
      return {
        precioNeto,

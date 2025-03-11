@@ -5,6 +5,7 @@ const items = document.querySelector("#cantidad-items");
 const price = document.querySelector("#precio-item");
 const state = document.querySelector("#estado");
 const category = document.querySelector("#categorias");
+const volumetricWeight = document.querySelector("#peso_volumetrico");
 const textCantidad = document.querySelector("#info-cantidadItems");
 const textPrecio = document.querySelector("#info-precioItem");
 const textPrecioNeto = document.querySelector("#info-precioNeto");
@@ -17,6 +18,7 @@ const textPorcentajeImpuestoVarios = document.querySelector("#info-porcentajeImp
 const textPorcentajeDescuentoVarios = document.querySelector("#info-porcentajeDescuentoVarios");
 const textTotalConImpuestoAdicional = document.querySelector("#info-totalConImpuestoAdicional");
 const textTotalConDescuentoAdicional = document.querySelector("#info-totalConDescuentoAdicional");
+const textCostoAdicionalPorEnvio = document.querySelector("#info-costoAdicionalPorEnvio");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -24,10 +26,11 @@ form.addEventListener("submit", (event) => {
   let cantidadItems = parseInt(items.value, 10);
   let precioItem = parseFloat(price.value);
   let estadoSeleccionado = state.value;
-  let categoriaSeleccionada = category.value.trim() || "Varios"; // Asegurar un valor predeterminado
+  let categoriaSeleccionada = category.value.trim() || "Varios";
+  let peso_volumetrico_seleccionado = volumetricWeight.value;
   const estadoNombre = state.options[state.selectedIndex].getAttribute("data-name");
 
-  const resultado = totalizar(cantidadItems, precioItem, estadoSeleccionado, categoriaSeleccionada);
+  const resultado = totalizar(cantidadItems, precioItem, estadoSeleccionado, categoriaSeleccionada, peso_volumetrico_seleccionado);
 
   textCantidad.textContent = `Cantidad de Items a Comprar: ${cantidadItems}`;
   textPrecio.textContent = `Precio por Item: ${precioItem}`;
@@ -41,4 +44,5 @@ form.addEventListener("submit", (event) => {
   textPorcentajeDescuentoVarios.textContent = `Porcentaje de Descuento Adicional para ${categoriaSeleccionada}: ${(resultado.descuentoAdicional * 100).toFixed(2)}%`;
   textTotalConImpuestoAdicional.textContent = `Total con Impuesto Adicional: ${resultado.totalConImpuestoAdicional.toFixed(2)}`;
   textTotalConDescuentoAdicional.textContent = `Total con Descuento Adicional: ${resultado.totalConDescuentoAdicional.toFixed(2)}`;
+  textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (pesos entre ${peso_volumetrico_seleccionado}):`;
 });

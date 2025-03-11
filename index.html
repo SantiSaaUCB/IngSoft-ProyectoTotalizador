@@ -20,6 +20,7 @@
         <option value="TX" data-name="Texas">Texas</option>
         <option value="AL" data-name="Alabama">Alabama</option>
       </select>
+      <label for="categoria">Cagetoria:</label>
       <select id="categorias">
         <option value="Varios" data-name="Varios">Varios</option>
         <option value="Vestimenta" data-name="Vestimenta">Vestimenta</option>
@@ -28,6 +29,16 @@
         <option value="Material de escritorio" data-name="Material de escritorio">Material de escritorio</option>
         <option value="Bebidas alcoholicas" data-name="Bebidas alcoholicas">Bebidas alcoholicas</option>
         <option value="Alimentos" data-name="Alimentos">Alimentos</option>
+      </select>
+      <label for="pesoVolumetrico">Peso Volumetrico:</label>
+      <select id="peso_volumetrico">
+        <option value="0-10" data-name="0-10">0-10</option>
+        <option value="11-20" data-name="11-20">11-20</option>
+        <option value="21-40" data-name="21-40">21-40</option>
+        <option value="41-80" data-name="41-80">41-80</option>
+        <option value="81-100" data-name="81-100">81-100</option>
+        <option value="101-200" data-name="101-200">101-200</option>
+        <option value=">200" data-name=">200">>200</option>
       </select>
       
       <input type="submit" value="Totalizar" id="totalizar-button" />
@@ -46,6 +57,7 @@
       <p id="info-porcentajeDescuentoVarios"></p>
       <p id="info-totalConImpuestoAdicional"></p>
       <p id="info-totalConDescuentoAdicional"></p>
+      <p id="info-costoAdicionalPorEnvio"></p>
     </div>
     <script type="module" src="./src/presenter.js"></script>
   </body>
