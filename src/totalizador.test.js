@@ -171,4 +171,13 @@ describe("Totalizar", () => {
     expect(resultado.costoAdicionalPorEnvio).toBe(5.0);
     expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(((108.25 * 1.04) * 0.99) + (5.0 * 10), 2);
   });
+  it("Debe calcular correctamente el total con impuesto adicional y descuento adicional para la categoría seleccionada", () => {
+    const resultado = totalizar(10, 10, "CA", "Vestimenta", "0-10");
+    expect(resultado.impuestoAdicional).toBe(0.02);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(108.25 * 1.02, 2);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo((108.25 * 1.02), 2);
+    expect(resultado.costoAdicionalPorEnvio).toBe(0);
+    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo((108.25 * 1.02), 2);
+  });
 });
