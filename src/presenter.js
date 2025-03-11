@@ -50,5 +50,5 @@ form.addEventListener("submit", (event) => {
   textTotalConDescuentoAdicional.textContent = `Total con Descuento Adicional: ${resultado.totalConDescuentoAdicional.toFixed(2)}`;
   textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (peso entre ${peso_volumetrico_seleccionado}): ${resultado.costoAdicionalPorEnvio.toFixed(2)}$ por item`;
   textTotalConCostoAdicionalPorEnvio.textContent = `Total con Costo Adicional por Envio: ${(resultado.totalConDescuentoAdicional + resultado.costoAdicionalPorEnvio).toFixed(2)}`;
-  textDescuentoPorTipoCliente.textContent = `Descuento por ser un cliente ${tipoClienteSeleccionado}: `;
+  textDescuentoPorTipoCliente.textContent = `El Descuento por ser un cliente ${tipoClienteSeleccionado}: es de ${resultado.descuentoPorTipoCliente.toFixed(2)}%`;
 });

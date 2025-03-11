@@ -230,4 +230,8 @@ describe("Totalizar", () => {
     expect(resultado.costoAdicionalPorEnvio).toBe(9.0);
     expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (9.0 * 10), 2);
   });
+  it("Debe mostrar el descuento segun el tipo de cliente", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Normal");
+    expect(resultado.descuento).toBe(0);
+  });
 });
