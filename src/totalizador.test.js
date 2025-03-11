@@ -262,4 +262,8 @@ describe("Totalizar", () => {
     const resultado = totalizar(10, 10, "CA", "Varios", "0-10", "Especial");
     expect(resultado.totalConDescuentoPorTipoCliente).toBeCloseTo(106.63);
   });
+  it("Debe calcular el total final con descuento fijo para 'Especial'", () => {
+    const resultado = totalizar(1, 7001, "CA", "Electronicos", "0-10", "Especial");
+    expect(resultado.PrecioTotalFinal).toBeCloseTo(6947.85);
+  });
 });

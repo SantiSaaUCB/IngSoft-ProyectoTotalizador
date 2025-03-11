@@ -23,6 +23,8 @@ const textCostoAdicionalPorEnvio = document.querySelector("#info-costoAdicionalP
 const textTotalConCostoAdicionalPorEnvio = document.querySelector("#info-totalConCostoAdicionalPorEnvio");
 const textDescuentoPorTipoCliente = document.querySelector("#info-descuentoPorTipoCliente");
 const textTotalPorTipoCliente = document.querySelector("#info-totalConTipoCliente");
+const textDescuentoFijo = document.querySelector("#info-descuentoFijo");
+const textTotalFinal = document.querySelector("#info-TotalFinal");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -53,4 +55,6 @@ form.addEventListener("submit", (event) => {
   textTotalConCostoAdicionalPorEnvio.textContent = `Total con Costo Adicional por Envio: ${(resultado.totalConDescuentoAdicional + resultado.costoAdicionalPorEnvio).toFixed(2)}`;
   textDescuentoPorTipoCliente.textContent = `El Descuento por ser un cliente ${tipoClienteSeleccionado} es de ${(resultado.descuentoPorTipoCliente * 100).toFixed(2)}%`;
   textTotalPorTipoCliente.textContent = `El Total con descuento para cliente ${tipoClienteSeleccionado} es de ${resultado.totalConDescuentoPorTipoCliente.toFixed(2)}`;
+  textDescuentoFijo.textContent = `El Descuento Fijo por ser un cliente ${tipoClienteSeleccionado} y comprar en la categoria ${categoriaSeleccionada} es de ${(resultado.descuentoFijo)}$`;
+  textTotalFinal.textContent = `El Total con descuento Fijo aplicado es de ${resultado.PrecioTotalFinal.toFixed(2)}$`;
 });

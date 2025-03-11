@@ -1,6 +1,6 @@
 function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria, peso_volumetrico_seleccionado, tipoClienteSeleccionado) {
      const precioNeto = cantidad_items * precio_item;
-     let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0, costoAdicionalPorEnvio = 0, descuentoPorTipoCliente=0;
+     let impuesto = 0, descuento = 0, impuestoAdicional = 0, descuentoAdicional = 0, costoAdicionalPorEnvio = 0, descuentoPorTipoCliente = 0, descuentoFijo = 0;
    
      varios_categoria = varios_categoria || "Varios";
    
@@ -63,6 +63,18 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
 
      const totalConDescuentoPorTipoCliente = totalCostoAdicionalPorEnvio - (totalCostoAdicionalPorEnvio * descuentoPorTipoCliente);
 
+     switch (tipoClienteSeleccionado) {
+          case "Especial": 
+               if(precioNeto > 7000 && varios_categoria == "Electronicos")
+               {
+                    descuentoFijo = 200; 
+               }
+               break;
+          default:descuentoFijo = 0; break;
+     }
+
+     const PrecioTotalFinal = totalConDescuentoPorTipoCliente - descuentoFijo;
+
      return {
        precioNeto,
        impuesto,
@@ -76,7 +88,9 @@ function totalizar(cantidad_items, precio_item, codigo_estado, varios_categoria,
        costoAdicionalPorEnvio,
        totalCostoAdicionalPorEnvio,
        descuentoPorTipoCliente,
-       totalConDescuentoPorTipoCliente
+       totalConDescuentoPorTipoCliente,
+       descuentoFijo,
+       PrecioTotalFinal
      };
    }
    
