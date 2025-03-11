@@ -220,4 +220,14 @@ describe("Totalizar", () => {
     expect(resultado.costoAdicionalPorEnvio).toBe(8.0);
     expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (8.0 * 10), 2);
   });
+
+  it("Debe calcular correctamente el total con costo adicional por envio para el rango de peso volumetrico >200", () => {
+    const resultado = totalizar(10, 10, "CA", "Varios", ">200");
+    expect(resultado.impuestoAdicional).toBe(0);
+    expect(resultado.descuentoAdicional).toBe(0);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(108.25, 2);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(108.25, 2);
+    expect(resultado.costoAdicionalPorEnvio).toBe(9.0);
+    expect(resultado.totalCostoAdicionalPorEnvio).toBeCloseTo(108.25 + (9.0 * 10), 2);
+  });
 });
