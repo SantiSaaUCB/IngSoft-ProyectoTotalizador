@@ -162,7 +162,6 @@ describe("Totalizar", () => {
     const resultado = totalizar(1, 1, "CA", "Varios", ">200");
     expect(resultado.costoAdicionalPorEnvio).toBe(9);
   });
-  
   it("Debe calcular correctamente el total con impuesto adicional y descuento adicional para la categoría seleccionada", () => {
     const resultado = totalizar(10, 10, "CA", "Electronicos", "21-40");
     expect(resultado.impuestoAdicional).toBe(0.04);

@@ -19,7 +19,7 @@ const textPorcentajeDescuentoVarios = document.querySelector("#info-porcentajeDe
 const textTotalConImpuestoAdicional = document.querySelector("#info-totalConImpuestoAdicional");
 const textTotalConDescuentoAdicional = document.querySelector("#info-totalConDescuentoAdicional");
 const textCostoAdicionalPorEnvio = document.querySelector("#info-costoAdicionalPorEnvio");
-const textTotalConDescuentoAdicionalPorEnvio = document.querySelector("#info-totalConDescuentoAdicionalPorEnvio");
+const textTotalConCostoAdicionalPorEnvio = document.querySelector("#info-totalConCostoAdicionalPorEnvio");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -46,5 +46,5 @@ form.addEventListener("submit", (event) => {
   textTotalConImpuestoAdicional.textContent = `Total con Impuesto Adicional: ${resultado.totalConImpuestoAdicional.toFixed(2)}`;
   textTotalConDescuentoAdicional.textContent = `Total con Descuento Adicional: ${resultado.totalConDescuentoAdicional.toFixed(2)}`;
   textCostoAdicionalPorEnvio.textContent = `Costo Adicional por envio, (peso entre ${peso_volumetrico_seleccionado}): ${resultado.costoAdicionalPorEnvio.toFixed(2)}$ por item`;
-  textTotalConDescuentoAdicionalPorEnvio.textContent = `Total con Descuento Adicional por Envio: ${(resultado.totalConDescuentoAdicional + resultado.costoAdicionalPorEnvio).toFixed(2)}`;
+  textTotalConCostoAdicionalPorEnvio.textContent = `Total con Costo Adicional por Envio: ${(resultado.totalConDescuentoAdicional + resultado.costoAdicionalPorEnvio).toFixed(2)}`;
 });
