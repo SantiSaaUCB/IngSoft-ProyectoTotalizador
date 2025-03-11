@@ -106,4 +106,11 @@ describe("Totalizar", () => {
     expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.16);
     expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.16);
   });
+  it("Debe calcular correctamente el total con descuento adicional para 'Material de escritorio'", () => {
+    const resultado = totalizar(1, 1, "CA", "Material de escritorio");
+    expect(resultado.impuestoAdicional).toBe(0);
+    expect(resultado.descuentoAdicional).toBe(0.015);
+    expect(resultado.totalConImpuestoAdicional).toBeCloseTo(1.08);
+    expect(resultado.totalConDescuentoAdicional).toBeCloseTo(1.07);
+  });
 });
